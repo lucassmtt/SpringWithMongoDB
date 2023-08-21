@@ -1,10 +1,12 @@
 package com.lucassmtt.workshopmongodb.dto;
 
 import com.lucassmtt.workshopmongodb.domain.User;
+import lombok.Getter;
 
 import java.io.Serial;
 import java.io.Serializable;
 
+@Getter
 public class UserDTO implements Serializable {
 
     @Serial
@@ -22,24 +24,12 @@ public class UserDTO implements Serializable {
         email = user.getEmail();
     }
 
-    public String getId() {
-        return id;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public void setEmail(String email) {

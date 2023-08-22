@@ -3,6 +3,7 @@ package com.lucassmtt.workshopmongodb.config;
 import com.lucassmtt.workshopmongodb.domain.Post;
 import com.lucassmtt.workshopmongodb.domain.User;
 import com.lucassmtt.workshopmongodb.dto.AuthorDTO;
+import com.lucassmtt.workshopmongodb.dto.CommentDTO;
 import com.lucassmtt.workshopmongodb.repositories.PostRepository;
 import com.lucassmtt.workshopmongodb.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,13 @@ public class Instantiation implements CommandLineRunner {
         maria.getPosts().addAll(Arrays.asList(post01, post02));
         bob.getPosts().add(post03);
         userRepository.saveAll(Arrays.asList(maria, bob));
+
+        CommentDTO comment001 = new CommentDTO( "Good trip, brother!", Instant.now(), new AuthorDTO(alex));
+        CommentDTO comment002 = new CommentDTO( "Enjoy", Instant.now(), new AuthorDTO(bob));
+        CommentDTO comment003 = new CommentDTO( "Have a great day", Instant.now(), new AuthorDTO(bob));
+
+        post01.getComments().addAll(Arrays.asList(comment001, comment002));
+        post02.getComments().add(comment003);
+        postRepository.saveAll(Arrays.asList(post01, post02, post03));
     }
 }

@@ -2,6 +2,7 @@ package com.lucassmtt.workshopmongodb.config;
 
 import com.lucassmtt.workshopmongodb.domain.Post;
 import com.lucassmtt.workshopmongodb.domain.User;
+import com.lucassmtt.workshopmongodb.dto.AuthorDTO;
 import com.lucassmtt.workshopmongodb.repositories.PostRepository;
 import com.lucassmtt.workshopmongodb.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +37,9 @@ public class Instantiation implements CommandLineRunner {
                 "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure " +
                 "dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
 
-        Post post01 = new Post(null, Instant.now(), "I go to the beach", body, maria);
-        Post post02 = new Post(null, Instant.now(), "I go to the city", body, maria);
-        Post post03 = new Post(null, Instant.now(), "I go to the camp", body, bob);
+        Post post01 = new Post(null, Instant.now(), "I go to the beach", body, new AuthorDTO(maria));
+        Post post02 = new Post(null, Instant.now(), "I go to the city", body, new AuthorDTO(maria));
+        Post post03 = new Post(null, Instant.now(), "I go to the camp", body, new AuthorDTO(bob));
         postRepository.saveAll(Arrays.asList(post01, post02, post03));
     }
 }

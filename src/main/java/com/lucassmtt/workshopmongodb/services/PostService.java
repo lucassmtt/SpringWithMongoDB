@@ -22,4 +22,8 @@ public class PostService {
         }
         return repository.findById(id).get();
     }
+
+    public List<Post> findByTitleContaining(String text) {
+        return repository.findByTitleContaining(text);
+    }
 }

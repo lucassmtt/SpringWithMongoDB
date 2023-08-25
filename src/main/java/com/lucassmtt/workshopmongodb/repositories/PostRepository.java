@@ -12,6 +12,6 @@ public interface PostRepository extends MongoRepository<Post, String> {
 
     List<Post> findByTitleContaining(String text);
 
-    @Query("{ 'title':  { $regex: ?0, $optioans: 'i' } }")
+    @Query("{ 'title':  { $regex: ?0, $options: 'i' } }")
     List<Post> searchByTitleWithQuery(String text);
 }

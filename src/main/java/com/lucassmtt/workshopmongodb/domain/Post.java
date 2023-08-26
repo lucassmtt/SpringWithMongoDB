@@ -3,12 +3,10 @@ package com.lucassmtt.workshopmongodb.domain;
 import com.lucassmtt.workshopmongodb.dto.AuthorDTO;
 import com.lucassmtt.workshopmongodb.dto.CommentDTO;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +20,7 @@ public class Post implements Serializable {
 
     @Id
     private String id;
-    private Instant date;
+    private Date date;
     private String title;
     private String body;
     private AuthorDTO author;
@@ -31,7 +29,7 @@ public class Post implements Serializable {
 
     public Post(){}
 
-    public Post(String id, Instant date, String title, String body, AuthorDTO author) {
+    public Post(String id, Date date, String title, String body, AuthorDTO author) {
         this.id = id;
         this.date = date;
         this.title = title;
@@ -47,11 +45,11 @@ public class Post implements Serializable {
         this.id = id;
     }
 
-    public Instant getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Instant date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

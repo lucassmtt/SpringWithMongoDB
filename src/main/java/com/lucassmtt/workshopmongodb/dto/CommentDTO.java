@@ -2,7 +2,7 @@ package com.lucassmtt.workshopmongodb.dto;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.Instant;
+import java.util.Date;
 
 public class CommentDTO implements Serializable {
 
@@ -10,12 +10,12 @@ public class CommentDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String text;
-    private Instant moment;
+    private Date moment;
     private AuthorDTO authorDTO;
     public CommentDTO() {
     }
 
-    public CommentDTO(String text, Instant moment,AuthorDTO authorDTO) {
+    public CommentDTO(String text, Date moment,AuthorDTO authorDTO) {
         this.text = text;
         this.moment = moment;
         this.authorDTO = authorDTO;
@@ -29,11 +29,11 @@ public class CommentDTO implements Serializable {
         this.text = text;
     }
 
-    public Instant getMoment() {
+    public Date getMoment() {
         return moment;
     }
 
-    public void setMoment(Instant moment) {
+    public void setMoment(Date moment) {
         this.moment = moment;
     }
 

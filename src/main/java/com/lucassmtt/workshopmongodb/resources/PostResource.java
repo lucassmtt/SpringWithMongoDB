@@ -3,11 +3,11 @@ package com.lucassmtt.workshopmongodb.resources;
 import com.lucassmtt.workshopmongodb.domain.Post;
 import com.lucassmtt.workshopmongodb.resources.util.URL;
 import com.lucassmtt.workshopmongodb.services.PostService;
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -29,4 +29,24 @@ public class PostResource {
        List<Post> posts = service.searchByTitleWithQuery(text);
        return ResponseEntity.ok().body(posts);
     }
+
+    @GetMapping(value = "fullsearch")
+    public ResponseEntity<List<Post>> fullSearch(
+            @RequestParam(value = "text", defaultValue = "") String text,
+            @RequestParam(value = "minDate", defaultValue = "") String minDate,
+            @RequestParam(value = "maxDate", defaultValue = "") String maxDate
+    )
+    {
+        text = URL.decodeParam(text);
+        Date min_date = URL.convertDate(minDate, new Date(0L));
+        Date max_date = URL.convertDate(maxDate, new Date());
+        List<Post> posts = service.searchWithMultipleParam(text, min_date, max_date);
+        return ResponseEntity.ok().body(posts);
+    }
 }
+
+
+
+
+
+

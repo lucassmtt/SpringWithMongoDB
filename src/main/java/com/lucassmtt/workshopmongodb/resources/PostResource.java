@@ -23,14 +23,14 @@ public class PostResource {
         return ResponseEntity.ok().body(post);
     }
 
-    @GetMapping(value = "/titlesearch")
+    @GetMapping(value = "/title-search")
     public ResponseEntity<List<Post>> findByTitle(@RequestParam(value = "text", defaultValue = "") String text){
        text = URL.decodeParam(text);
        List<Post> posts = service.searchByTitleWithQuery(text);
        return ResponseEntity.ok().body(posts);
     }
 
-    @GetMapping(value = "fullsearch")
+    @GetMapping(value = "full-search")
     public ResponseEntity<List<Post>> fullSearch(
             @RequestParam(value = "text", defaultValue = "") String text,
             @RequestParam(value = "minDate", defaultValue = "") String minDate,
@@ -44,9 +44,3 @@ public class PostResource {
         return ResponseEntity.ok().body(posts);
     }
 }
-
-
-
-
-
-

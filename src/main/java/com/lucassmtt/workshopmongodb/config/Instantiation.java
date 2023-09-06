@@ -43,9 +43,9 @@ public class Instantiation implements CommandLineRunner {
                 "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure " +
                 "dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
 
-        Post post01 = new Post(null, sdf.parse("21/03/2018"), "I go to the beach", body, new AuthorDTO(maria));
-        Post post02 = new Post(null, sdf.parse("23/03/2018"), "I go to the city", body, new AuthorDTO(maria));
-        Post post03 = new Post(null, sdf.parse("23/03/2018"), "I go to the camp", body, new AuthorDTO(bob));
+        Post post01 = new Post(null, sdf.parse("21/03/2018"), "I go to the beach is the first Post", body, new AuthorDTO(maria));
+        Post post02 = new Post(null, sdf.parse("23/03/2018"), "I go to the city is the second Post", body, new AuthorDTO(maria));
+        Post post03 = new Post(null, sdf.parse("23/03/2018"), "I go to the camp is the third post", body, new AuthorDTO(bob));
         postRepository.saveAll(Arrays.asList(post01, post02, post03));
 
         maria.getPosts().addAll(Arrays.asList(post01, post02));
